@@ -1,4 +1,4 @@
-def longest_subsequence(string):
+def longest_subsequence_length(string):
     a, e, i, o, u = [0] * 5
     for char in string:
         if char == 'a':
@@ -14,6 +14,22 @@ def longest_subsequence(string):
     print(f"Longest Ordered Vowel Subsequnce is: {u}")
 
 
+def longest_subsequence(string):
+    vowels = ['a', 'e', 'i', 'o', 'u']
+    prev = [0] * 6
+    cur = [0] * 6
+    for i in range(len(string)):
+        char = string[i]
+        for j in range(5):
+            if char == vowels[j]:
+                cur[j+1] = max(prev[j], prev[j+1]) + 1
+            else:
+                cur[j+1] = prev[j+1]
+        prev = cur
+    print(f"Longest Ordered Vowel Subsequnce is: {cur[-1]}")
+
+
 if __name__ == "__main__":
     s = input().strip()
+    longest_subsequence_length(s)
     longest_subsequence(s)

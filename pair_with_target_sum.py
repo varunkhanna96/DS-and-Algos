@@ -1,4 +1,8 @@
+"""
+To find unique pairs with target sum
+"""
 from itertools import combinations
+
 
 def find_pairs(numbers, target):
     """
